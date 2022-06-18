@@ -43,8 +43,13 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.note_title_txt.setText(String.valueOf(note_title.get(position)));
         holder.note_date_txt.setText(String.valueOf(note_date.get(position)));
+        holder.cardView.setOnClickListener(this::onClickCardView);
         holder.cardView.setAnimation(AnimationUtils.loadAnimation(holder.cardView.getContext(), R.anim.alpha_in));
 
+    }
+
+    private void onClickCardView(View view) {
+        view.startAnimation(AnimationUtils.loadAnimation(view.getContext(), R.anim.alpha_in));
     }
 
 
